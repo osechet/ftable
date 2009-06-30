@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=lib/tuple/tuple-1.0.jar -DgroupId=com.mallardsoft -DartifactId=tuple -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true
