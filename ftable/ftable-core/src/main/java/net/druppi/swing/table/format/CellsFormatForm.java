@@ -39,7 +39,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import net.druppi.swing.FontChooser;
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 import net.druppi.swing.table.format.categories.ConfigPanel;
 import net.druppi.swing.table.format.categories.FormatCategory;
 import net.druppi.swing.table.format.categories.FormatListModel;
@@ -84,7 +84,7 @@ public class CellsFormatForm extends javax.swing.JPanel {
      *
      * @param table the table to use to initialize the panel.
      */
-    public void initFrom(final STable table) {
+    public void initFrom(final FTable table) {
         int row = table.getSelectedRow();
         int column = table.getSelectedColumn();
         if (row >= 0 && column >= 0) {

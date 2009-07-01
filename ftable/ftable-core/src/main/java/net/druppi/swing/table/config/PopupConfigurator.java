@@ -13,7 +13,7 @@
  */
 package net.druppi.swing.table.config;
 
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 
 
 /**
@@ -36,8 +36,8 @@ public final class PopupConfigurator {
      *
      * @param table the table to which the menu is added.
      */
-    public static void createPopupMenu(final STable table) {
-        STableConfigurator.createPopupMenu(table);
+    public static void createPopupMenu(final FTable table) {
+        FTableConfigurator.createPopupMenu(table);
     }
 
 }

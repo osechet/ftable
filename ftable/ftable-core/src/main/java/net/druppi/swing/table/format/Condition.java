@@ -13,7 +13,7 @@
  */
 package net.druppi.swing.table.format;
 
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 
 /**
  * A Condition defines one method that returns <code>true</code> if the condition is
@@ -34,6 +34,6 @@ public abstract class Condition {
      * @return <code>true</code> if the condition is matched, <code>false</code>
      *         otherwise.
      */
-    public abstract boolean matches(final STable table, final int rowIndex, final int columnIndex);
+    public abstract boolean matches(final FTable table, final int rowIndex, final int columnIndex);
 
 }

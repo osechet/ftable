@@ -24,7 +24,7 @@ import java.util.Map;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 import net.druppi.swing.table.format.categories.CategoryFactory;
 import net.druppi.swing.table.format.categories.FormatCategory;
 
@@ -42,7 +42,7 @@ import com.mallardsoft.tuple.Pair;
 public class FormatManager {
 
     /** The associated table. */
-    private final STable table;
+    private final FTable table;
 
     /** The format per column. */
     private Map<Integer, CellFormat> columns = new HashMap<Integer, CellFormat>();
@@ -73,7 +73,7 @@ public class FormatManager {
      *
      * @param table the associated table.
      */
-    public FormatManager(final STable table) {
+    public FormatManager(final FTable table) {
         this.table = table;
 
         defaultFormat = new CellFormat(null, Alignment.LEFT,
@@ -193,7 +193,7 @@ public class FormatManager {
      *
      * @return the assigned renderer; if <code>null</code> returns the default renderer
      *         for this type of object.
-     * @see STable#getCellRenderer(int, int)
+     * @see FTable#getCellRenderer(int, int)
      */
     public TableCellRenderer getCellRenderer(final int row, final int column) {
         int rowIndex = table.convertRowIndexToModel(row);
@@ -212,7 +212,7 @@ public class FormatManager {
      *
      * @return the editor for this cell; if <code>null</code> return the default editor
      *         for this type of cell.
-     * @see STable#getCellEditor(int, int)
+     * @see FTable#getCellEditor(int, int)
      */
     public TableCellEditor getCellEditor(final int row, final int column) {
         int rowIndex = table.convertRowIndexToModel(row);

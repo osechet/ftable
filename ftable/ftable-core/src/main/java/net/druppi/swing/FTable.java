@@ -1,5 +1,5 @@
 /*
- * STable.java
+ * FTable.java
  *
  * Copyright (C) 2009 Olivier Sechet
  *
@@ -35,7 +35,7 @@ import ext.XTableColumnModel;
  * @author Olivier Sechet
  * @version 1.0 - Apr 10, 2009
  */
-public class STable extends JTable {
+public class FTable extends JTable {
 
     /** The serial version id. */
     private static final long serialVersionUID = -1518629652377949982L;
@@ -44,45 +44,45 @@ public class STable extends JTable {
     private FormatManager formatManager;
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @see JTable#JTable()
      */
-    public STable() {
+    public FTable() {
         this(null, null, null);
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param numRows the number of rows the table holds
      * @param numColumns the number of columns the table holds
      * @see JTable#JTable(int, int)
      */
-    public STable(final int numRows, final int numColumns) {
+    public FTable(final int numRows, final int numColumns) {
         this(new DefaultTableModel(numRows, numColumns));
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param rowData the data for the new table
      * @param columnNames names of each column
      * @see JTable#JTable(Vector, Vector)
      */
-    public STable(final Vector<?> rowData, final Vector<?> columnNames) {
+    public FTable(final Vector<?> rowData, final Vector<?> columnNames) {
         this(new DefaultTableModel(rowData, columnNames));
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param rowData the data for the new table
      * @param columnNames names of each column
      * @see JTable#JTable(Object[][], Object[])
      */
     @SuppressWarnings("serial")
-    public STable(final Object[][] rowData, final Object[] columnNames) {
+    public FTable(final Object[][] rowData, final Object[] columnNames) {
         this(new AbstractTableModel() {
             public String getColumnName(final int column) {
                 return columnNames[column].toString();
@@ -112,35 +112,35 @@ public class STable extends JTable {
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param dm the data model for the table
      * @see JTable#JTable(TableModel)
      */
-    public STable(final TableModel dm) {
+    public FTable(final TableModel dm) {
         this(dm, null, null);
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param dm the data model for the table
      * @param cm the column model for the table
      * @see JTable#JTable(TableModel, TableColumnModel)
      */
-    public STable(final TableModel dm, final TableColumnModel cm) {
+    public FTable(final TableModel dm, final TableColumnModel cm) {
         this(dm, cm, null);
     }
 
     /**
-     * Creates a new STable.
+     * Creates a new FTable.
      *
      * @param dm the data model for the table
      * @param cm the column model for the table
      * @param sm the row selection model for the table
      * @see JTable#JTable(TableModel, TableColumnModel, ListSelectionModel)
      */
-    public STable(final TableModel dm, final TableColumnModel cm,
+    public FTable(final TableModel dm, final TableColumnModel cm,
             final ListSelectionModel sm) {
         super(dm, cm, sm);
 
@@ -173,8 +173,8 @@ public class STable extends JTable {
 //                        int y = rect1.y - 1;
 //                        int height = rect2.y + rect2.height - rect1.y + 2;
 //
-//                        RepaintManager.currentManager(STable.this).addDirtyRegion(
-//                                STable.this, x, y, width, height);
+//                        RepaintManager.currentManager(FTable.this).addDirtyRegion(
+//                                FTable.this, x, y, width, height);
 //                        System.out.println("repaint from " + firstRow + ", "
 //                                + firstColumn + " to " + lastRow + ", " + lastColumn
 //                                + " | " + x + ", " + y + " - " + width + ", " + height);
