@@ -16,6 +16,10 @@ package net.druppi.swing.table.format;
 import java.awt.Color;
 import java.awt.Font;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 import net.druppi.swing.table.format.categories.FormatCategory;
 
 
@@ -25,7 +29,7 @@ import net.druppi.swing.table.format.categories.FormatCategory;
  * @author Olivier Sechet
  * @version 1.0 - Apr 7, 2009
  */
-public class CellFormat {
+public class CellFormat implements Comparable<CellFormat> {
 
     /**
      * The parent CellFormat. The parent's properties is used when they are not defined in
@@ -180,11 +184,13 @@ public class CellFormat {
             return true;
         }
         CellFormat that = (CellFormat) obj;
-        return this.alignment == that.alignment
-                && (this.font != null && this.font.equals(that.font))
-                && (this.foreground != null && this.foreground.equals(that.foreground))
-                && (this.background != null && this.background.equals(that.background))
-                && (this.formatter != null && this.formatter.equals(that.formatter));
+        return new EqualsBuilder()
+            .append(this.parent, that.parent)
+            .append(this.alignment, that.alignment)
+            .append(this.font, that.font)
+            .append(this.foreground, that.foreground)
+            .append(this.background, that.background)
+            .append(this.formatter, that.formatter).isEquals();
     }
 
     /**
@@ -192,11 +198,26 @@ public class CellFormat {
      */
     @Override
     public int hashCode() {
-        // TODO: create a better hashcode
-        return (this.alignment != null ? this.alignment.hashCode() : 0)
-                | (this.font != null ? this.font.hashCode() : 0)
-                | (this.foreground != null ? this.foreground.hashCode() : 0)
-                | (this.background != null ? this.background.hashCode() : 0)
-                | (this.formatter != null ? this.formatter.hashCode() : 0);
+        return new HashCodeBuilder(13, 47)
+            .append(this.parent)
+            .append(this.alignment)
+            .append(this.font)
+            .append(this.foreground)
+            .append(this.background)
+            .append(this.formatter).toHashCode();
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    @Override
+    public int compareTo(CellFormat that) {
+        return new CompareToBuilder()
+            .append(this.parent, that.parent)
+            .append(this.alignment, that.alignment)
+            .append(this.font, that.font)
+            .append(this.foreground, that.foreground)
+            .append(this.background, that.background)
+            .append(this.formatter, that.formatter).toComparison();
     }
 }

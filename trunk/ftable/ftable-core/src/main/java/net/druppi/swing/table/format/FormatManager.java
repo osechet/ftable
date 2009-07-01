@@ -16,6 +16,7 @@ package net.druppi.swing.table.format;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -34,7 +35,7 @@ import com.mallardsoft.tuple.Pair;
 
 /**
  * Describes the format of the cells of a grid. The format can be defined per cell or per
- * row or per column or per type. The priority is as follow : cell > row > column > type.
+ * row or per column or per condition. The priority is as follow : cell > row > column > condition.
  *
  * @author Olivier Sechet
  * @version 1.0 - Apr 7, 2009
@@ -99,13 +100,14 @@ public class FormatManager {
         CellFormat cellFormat = new CellFormat(defaultFormat, alignment, formatter, font,
                 foreground, background);
         // Check if such a format exist.
-        int index = formats.indexOf(cellFormat);
-        if (index >= 0) {
+        int index = Collections.binarySearch(formats, cellFormat);
+        if (index > 0) {
             return formats.get(index);
         }
         // An equivalent format does not exist. The new one is added to the list and
         // returned.
-        formats.add(cellFormat);
+        index = -(index + 1);
+        formats.add(index, cellFormat);
         return cellFormat;
     }
 
