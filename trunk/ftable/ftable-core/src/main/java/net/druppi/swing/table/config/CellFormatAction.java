@@ -25,7 +25,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JDialog;
 
 import net.druppi.swing.OKCancelForm;
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 import net.druppi.swing.table.format.Alignment;
 import net.druppi.swing.table.format.CellFormat;
 import net.druppi.swing.table.format.CellsFormatForm;
@@ -43,7 +43,7 @@ import net.druppi.util.ResourceManager;
 class CellFormatAction extends AbstractAction {
 
     /** The associated table. */
-    private STable table;
+    private FTable table;
 
     /** The dialog. */
     private JDialog dialog;
@@ -56,7 +56,7 @@ class CellFormatAction extends AbstractAction {
      *
      * @param table the associated table.
      */
-    public CellFormatAction(final STable table) {
+    public CellFormatAction(final FTable table) {
         super(ResourceManager.getResourceMap(PopupConfigurator.class).getString("CellFormatAction.text")); //$NON-NLS-1$
         this.table = table;
     }

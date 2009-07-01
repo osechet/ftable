@@ -29,7 +29,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 import net.druppi.swing.table.config.PopupConfigurator;
 import net.druppi.swing.table.format.Alignment;
 import net.druppi.swing.table.format.CellFormat;
@@ -59,7 +59,7 @@ public class TablePanel extends JPanel {
      */
     private void initComponents() {
         setLayout(new BorderLayout());
-        final STable table = new STable(new Model());
+        final FTable table = new FTable(new Model());
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(true);
         add(new JScrollPane(table));
@@ -71,7 +71,7 @@ public class TablePanel extends JPanel {
         formatManager.setConditionFormat(new Condition() {
 
             @Override
-            public boolean matches(final STable table, final int rowIndex, final int columnIndex) {
+            public boolean matches(final FTable table, final int rowIndex, final int columnIndex) {
                 return table.getModel().getValueAt(rowIndex, columnIndex) == null;
             }
         }, format);

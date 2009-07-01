@@ -1,5 +1,5 @@
 /*
- * STableConfigurator.java
+ * FTableConfigurator.java
  *
  * Copyright (C) 2009 Olivier Sechet
  *
@@ -24,7 +24,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
-import net.druppi.swing.STable;
+import net.druppi.swing.FTable;
 import net.druppi.swing.table.OrganizeColumnForm;
 import net.druppi.swing.table.PropertiesDialog;
 import net.druppi.util.ResourceManager;
@@ -35,12 +35,12 @@ import net.druppi.util.ResourceMap;
  * @author Olivier Sechet
  * @version 1.0 - Apr 16, 2009
  */
-final class STableConfigurator {
+final class FTableConfigurator {
 
     /**
-     * Creates a new STableConfigurator.
+     * Creates a new FTableConfigurator.
      */
-    private STableConfigurator() {
+    private FTableConfigurator() {
         // no op
     }
 
@@ -49,7 +49,7 @@ final class STableConfigurator {
      *
      * @param table the table to which the menu is added.
      */
-    public static void createPopupMenu(final STable table) {
+    public static void createPopupMenu(final FTable table) {
         final JPopupMenu popup = new JPopupMenu();
         ResourceMap resourceMap = ResourceManager.getResourceMap(PopupConfigurator.class);
         final JMenuItem propertiesItem = new JMenuItem(new ShowPropertiesTabAction(resourceMap.getString("PropertiesAction.text"), table, -1)); //$NON-NLS-1$
@@ -102,7 +102,7 @@ final class STableConfigurator {
      * @param table the table.
      * @return the PropertiesDialog.
      */
-    private static PropertiesDialog createDialog(final STable table) {
+    private static PropertiesDialog createDialog(final FTable table) {
         Frame frame = (Frame) table.getTopLevelAncestor();
         assert (frame != null) : "The table must be added to a valid frame"; //$NON-NLS-1$
         PropertiesDialog dialog = new PropertiesDialog(frame, false);
@@ -128,20 +128,20 @@ final class STableConfigurator {
     private static class ShowPropertiesTabAction extends AbstractAction {
 
         /** The associated table. */
-        private final STable table;
+        private final FTable table;
         /** The index of the tab to display. */
         private final int tabIndex;
         /** The properties dialog. */
         private PropertiesDialog dialog;
 
         /**
-         * Creates a new STableConfigurator.ShowPropertiesTabAction.
+         * Creates a new FTableConfigurator.ShowPropertiesTabAction.
          *
          * @param name the action's name.
          * @param table the associated table.
          * @param tabIndex the index of the tab to display. -1 to display the last visible tab.
          */
-        public ShowPropertiesTabAction(final String name, final STable table, final int tabIndex) {
+        public ShowPropertiesTabAction(final String name, final FTable table, final int tabIndex) {
             super(name);
             this.table = table;
             this.tabIndex = tabIndex;
