@@ -24,6 +24,7 @@
 		<developer>
 			<id>osechet</id>
 			<name>Olivier Sechet</name>
+			<email>osechet@kenai.com</email>
 			<url>http://www.druppi.net/</url>
 			<timezone>+8</timezone>
 			<roles>
@@ -36,10 +37,6 @@
 		<connection>scm:https://kenai.com/svn/ftable~source-code-repository</connection>
 		<url>https://kenai.com/svn/ftable~source-code-repository/</url>
 	</scm>
-	<organization>
-		<name>Druppi.net</name>
-		<url>http://www.druppi.net</url>
-	</organization>
 	<modules>
 		<module>ftable-utilities</module>
 		<module>ftable-core</module>
