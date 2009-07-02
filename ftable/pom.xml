@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.druppi</groupId>
-	<artifactId>ftable</artifactId>
-	<packaging>pom</packaging>
-	<name>Improved Table with Formatting</name>
-	<version>1.0-SNAPSHOT</version>
-	<url>http://kenai.com/projects/ftable/</url>
-	<licenses>
-		<license>
-			<name>GNU Lesser General Public License</name>
-			<url>http://www.gnu.org/licenses/lgpl.html</url>
-			<distribution>manual</distribution>
-		</license>
-	</licenses>
-	<issueManagement>
-		<system>Bugzilla</system>
-		<url>http://kenai.com/bugzilla/buglist.cgi?product=ftable&amp;order=Importance&amp;limit=25</url>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.druppi</groupId>
+    <artifactId>ftable</artifactId>
+    <packaging>pom</packaging>
+    <name>Improved Table with Formatting</name>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://kenai.com/projects/ftable/</url>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.gnu.org/licenses/lgpl.html</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+    <issueManagement>
+        <system>Bugzilla</system>
+        <url>http://kenai.com/bugzilla/buglist.cgi?product=ftable&amp;order=Importance&amp;limit=25</url>
 	</issueManagement>
+    <scm>
+        <connection>scm:https://kenai.com/svn/ftable~source-code-repository</connection>
+        <url>https://kenai.com/svn/ftable~source-code-repository/</url>
+    </scm>
 	<developers>
 		<developer>
 			<id>osechet</id>
@@ -32,12 +38,9 @@
 			</roles>
 		</developer>
 	</developers>
-	<scm>
-		<connection>scm:https://kenai.com/svn/ftable~source-code-repository</connection>
-		<url>https://kenai.com/svn/ftable~source-code-repository/</url>
-	</scm>
 	<modules>
 		<module>ftable-utilities</module>
 		<module>ftable-core</module>
-	</modules>
+        <module>ftable-demo</module>
+    </modules>
 </project>
