@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
@@ -26,6 +26,8 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import net.druppi.swing.table.format.categories.FormatCategory;
+import net.druppi.util.ColorComparator;
+import net.druppi.util.FontComparator;
 
 
 /**
@@ -220,9 +222,9 @@ public class CellFormat implements Comparable<CellFormat> {
         return new CompareToBuilder()
             .append(this.parent, that.parent)
             .append(this.alignment, that.alignment)
-            .append(this.font, that.font)
-            .append(this.foreground, that.foreground)
-            .append(this.background, that.background)
+            .append(this.font, that.font, FontComparator.getInstance())
+            .append(this.foreground, that.foreground, ColorComparator.getInstance())
+            .append(this.background, that.background, ColorComparator.getInstance())
             .append(this.formatter, that.formatter).toComparison();
     }
 }
