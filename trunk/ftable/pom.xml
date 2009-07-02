@@ -25,6 +25,14 @@
         <connection>scm:https://kenai.com/svn/ftable~source-code-repository</connection>
         <url>https://kenai.com/svn/ftable~source-code-repository/</url>
     </scm>
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>ftable.releases</id>
+            <name>FTable Repository</name>
+            <url>${deployPath}</url>
+        </repository>
+    </distributionManagement>
 	<developers>
 		<developer>
 			<id>osechet</id>
@@ -43,4 +51,41 @@
 		<module>ftable-core</module>
         <module>ftable-demo</module>
     </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <links>
+                                <link>${javadocLink}</link>
+                            </links>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
