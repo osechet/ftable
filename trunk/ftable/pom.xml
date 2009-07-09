@@ -8,7 +8,7 @@
     <artifactId>ftable</artifactId>
     <packaging>pom</packaging>
     <name>Improved Table with Formatting</name>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1</version>
     <url>http://kenai.com/projects/ftable/</url>
     <licenses>
         <license>
