@@ -6,13 +6,12 @@
     <parent>
         <artifactId>ftable</artifactId>
         <groupId>net.druppi</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.druppi</groupId>
     <artifactId>ftable-demo</artifactId>
     <name>ftable-demo</name>
-    <version>1.0-SNAPSHOT</version>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
@@ -94,7 +93,7 @@
         <dependency>
             <groupId>net.druppi</groupId>
             <artifactId>ftable-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${version}</version>
         </dependency>
     </dependencies>
 </project>

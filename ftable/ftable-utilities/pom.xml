@@ -4,13 +4,12 @@
 	<parent>
 		<artifactId>ftable</artifactId>
 		<groupId>net.druppi</groupId>
-		<version>1.0-SNAPSHOT</version>
+		<version>0.1</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.druppi</groupId>
 	<artifactId>ftable-utilities</artifactId>
 	<name>ftable-utilities</name>
-	<version>1.0-SNAPSHOT</version>
 	<url>http://kenai.com/projects/ftable/</url>
 	<scm>
 		<connection>scm:https://kenai.com/svn/ftable~source-code-repository/ftable-utilities</connection>
