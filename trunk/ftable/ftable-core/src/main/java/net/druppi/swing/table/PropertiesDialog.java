@@ -7,12 +7,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
@@ -33,7 +33,7 @@ import net.druppi.util.ResourceManager;
  * A dialog used to display table properties. The dialog contains a JTabbedPane that can
  * be customized. For each kind of properties, a new panel can be added with the
  * <code>addTab()</code> method.
- * 
+ *
  * @author Olivier Sechet
  * @version 1.0 - Mar 24, 2009
  */
@@ -42,7 +42,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form PropertiesDialog.
-     * 
+     *
      * @param parent the Frame from which the dialog is displayed.
      * @param modal specifies whether dialog blocks user input to other top-level windows
      *        when shown. If true, the modality type property is set to
@@ -55,7 +55,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * Adds a new tab to the dialog.
-     * 
+     *
      * @param panel the panel to add as a tab.
      */
     public final void addTab(final PropertiesPanel panel) {
@@ -63,7 +63,9 @@ public class PropertiesDialog extends javax.swing.JDialog {
     }
 
     /**
-     * @return
+     * Returns an array of the attached panels.
+     *
+     * @return the attached properties panels.
      */
     public PropertiesPanel[] getPropertiesPanels() {
         Component[] components = tabbedPane.getComponents();
@@ -71,7 +73,9 @@ public class PropertiesDialog extends javax.swing.JDialog {
     }
 
     /**
-     * @param tabIndex
+     * Shows the specified tab.
+     *
+     * @param tabIndex the index of the tab to display.
      */
     public void setTabVisible(int tabIndex) {
         tabbedPane.setSelectedIndex(tabIndex);
@@ -79,7 +83,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * Closes the dialog.
-     * 
+     *
      * @param evt an event.
      */
     private void close() {
@@ -88,7 +92,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * Apply the options.
-     * 
+     *
      * @param evt an event.
      */
     private void apply() {
@@ -131,7 +135,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * The OK button listener.
-     * 
+     *
      * @author Olivier Sechet
      * @version 1.0 - Apr 16, 2009
      */
@@ -146,7 +150,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * The Apply button listener.
-     * 
+     *
      * @author Olivier Sechet
      * @version 1.0 - Apr 16, 2009
      */
@@ -160,7 +164,7 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * The Cancel button listener.
-     * 
+     *
      * @author Olivier Sechet
      * @version 1.0 - Apr 16, 2009
      */
