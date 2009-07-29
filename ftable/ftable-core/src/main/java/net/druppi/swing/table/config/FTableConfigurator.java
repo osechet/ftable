@@ -7,18 +7,20 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 package net.druppi.swing.table.config;
 
 import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -108,9 +110,17 @@ final class FTableConfigurator {
      * @return the PropertiesDialog.
      */
     private static PropertiesDialog createDialog(final FTable table) {
-        Frame frame = (Frame) table.getTopLevelAncestor();
-        assert (frame != null) : "The table must be added to a valid frame"; //$NON-NLS-1$
-        PropertiesDialog dialog = new PropertiesDialog(frame, false);
+        PropertiesDialog dialog;
+        Container ancestor = table.getTopLevelAncestor();
+        if (ancestor instanceof Frame) {
+            Frame parent = (Frame) ancestor;
+            dialog = new PropertiesDialog(parent, false);
+        } else if (ancestor instanceof Dialog) {
+            Dialog parent = (Dialog) ancestor;
+            dialog = new PropertiesDialog(parent, false);
+        } else {
+            dialog = new PropertiesDialog((Frame) null, false);
+        }
 
 //        dialog.addTab(new TableFilterForm(table));
         OrganizeColumnForm panel = new OrganizeColumnForm();
@@ -118,7 +128,7 @@ final class FTableConfigurator {
         dialog.addTab(panel);
 
         dialog.pack();
-        dialog.setLocationRelativeTo(frame);
+        dialog.setLocationRelativeTo(ancestor);
 
         return dialog;
     }

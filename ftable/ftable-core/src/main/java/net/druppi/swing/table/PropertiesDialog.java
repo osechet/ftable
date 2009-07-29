@@ -20,6 +20,7 @@ package net.druppi.swing.table;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,6 +50,19 @@ public class PropertiesDialog extends javax.swing.JDialog {
      *        DEFAULT_MODALITY_TYPE, otherwise the dialog is modeless.
      */
     public PropertiesDialog(final Frame parent, final boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+
+    /**
+     * Creates new form PropertiesDialog.
+     *
+     * @param parent the Dialog from which the dialog is displayed.
+     * @param modal specifies whether dialog blocks user input to other top-level windows
+     *        when shown. If true, the modality type property is set to
+     *        DEFAULT_MODALITY_TYPE, otherwise the dialog is modeless.
+     */
+    public PropertiesDialog(final Dialog parent, final boolean modal) {
         super(parent, modal);
         initComponents();
     }
