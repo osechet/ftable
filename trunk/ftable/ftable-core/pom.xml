@@ -67,5 +67,11 @@
             <artifactId>tools</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+        	<groupId>com.sun</groupId>
+        	<artifactId>jlfgr</artifactId>
+        	<version>1.0</version>
+        	<scope>runtime</scope>
+        </dependency>
     </dependencies>
 </project>
