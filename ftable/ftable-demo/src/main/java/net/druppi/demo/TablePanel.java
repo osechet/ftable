@@ -71,6 +71,7 @@ public class TablePanel extends JPanel {
         add(filterText, BorderLayout.SOUTH);
 
         FormatManager formatManager = table.getFormatManager();
+        // All the cells whose value is null have a blue background
         CellFormat format = formatManager.getCellFormat(null, null, null, null, new Color(224, 224, 255));
         formatManager.setConditionFormat(new Condition() {
 
@@ -80,11 +81,14 @@ public class TablePanel extends JPanel {
             }
         }, format);
 
+        // All the cells of the second column are right-aligned
         CellFormat format2 = formatManager.getCellFormat(Alignment.RIGHT, null, null, null, null);
         formatManager.setColumnFormat(1, format2);
 
+        // All the cells of the 4th and 7th rows have a green background
         CellFormat format3 = formatManager.getCellFormat(null, null, null, null, new Color(224, 255, 224));
         formatManager.setRowFormat(3, format3);
+        formatManager.setRowFormat(6, format3);
 
         PopupConfigurator.createPopupMenu(table);
 
