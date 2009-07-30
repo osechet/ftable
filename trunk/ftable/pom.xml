@@ -43,10 +43,10 @@
             <url>${deployPath}/ftable-maven/releases/</url>
         </repository>
         <snapshotRepository>
-            <uniqueVersion>true</uniqueVersion>
             <id>ftable-snapshots</id>
             <name>FTable Snapshots Repository</name>
             <url>${deployPath}/ftable-maven/snapshots/</url>
+            <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
 
