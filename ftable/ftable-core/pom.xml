@@ -64,7 +64,7 @@
         </dependency>
         <dependency>
             <groupId>net.druppi</groupId>
-            <artifactId>tools</artifactId>
+            <artifactId>dtools</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
