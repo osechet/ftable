@@ -3,23 +3,22 @@
  *
  * Copyright (C) 2009 Olivier Sechet
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, see <http://www.gnu.org/licenses/>.
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 package net.druppi.swing.table;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -82,8 +81,11 @@ public class PropertiesDialog extends javax.swing.JDialog {
      * @return the attached properties panels.
      */
     public PropertiesPanel[] getPropertiesPanels() {
-        Component[] components = tabbedPane.getComponents();
-        return (PropertiesPanel[]) components;
+        PropertiesPanel[] panels = new PropertiesPanel[tabbedPane.getComponentCount()];
+        for (int i = 0; i < panels.length; i++) {
+            panels[i] = (PropertiesPanel) tabbedPane.getComponent(i);
+        }
+        return panels;
     }
 
     /**
@@ -91,14 +93,12 @@ public class PropertiesDialog extends javax.swing.JDialog {
      *
      * @param tabIndex the index of the tab to display.
      */
-    public void setTabVisible(int tabIndex) {
+    public void setTabVisible(final int tabIndex) {
         tabbedPane.setSelectedIndex(tabIndex);
     }
 
     /**
      * Closes the dialog.
-     *
-     * @param evt an event.
      */
     private void close() {
         setVisible(false);
@@ -106,8 +106,6 @@ public class PropertiesDialog extends javax.swing.JDialog {
 
     /**
      * Apply the options.
-     *
-     * @param evt an event.
      */
     private void apply() {
         PropertiesPanel panel = (PropertiesPanel) tabbedPane.getSelectedComponent();
@@ -155,6 +153,9 @@ public class PropertiesDialog extends javax.swing.JDialog {
      */
     private class OKHandler implements ActionListener {
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public void actionPerformed(final ActionEvent evt) {
             apply();
@@ -170,6 +171,9 @@ public class PropertiesDialog extends javax.swing.JDialog {
      */
     private class ApplyHandler implements ActionListener {
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public void actionPerformed(final ActionEvent evt) {
             apply();
@@ -184,6 +188,9 @@ public class PropertiesDialog extends javax.swing.JDialog {
      */
     private class CancelHandler implements ActionListener {
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public void actionPerformed(final ActionEvent evt) {
             close();

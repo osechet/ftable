@@ -3,18 +3,18 @@
  *
  * Copyright (C) 2009 Olivier Sechet
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, see <http://www.gnu.org/licenses/>.
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 package net.druppi.demo;
 
@@ -198,6 +198,23 @@ public class TablePanel extends JPanel {
         public Object getValueAt(int rowIndex, int columnIndex) {
             List<Object> row = data.get(rowIndex);
             return row.get(columnIndex);
+        }
+
+        /*
+         * @see javax.swing.table.AbstractTableModel#setValueAt(java.lang.Object, int, int)
+         */
+        @Override
+        public void setValueAt(Object value, int rowIndex, int columnIndex) {
+            List<Object> row = data.get(rowIndex);
+            row.set(columnIndex, value);
+        }
+
+        /*
+         * @see javax.swing.table.AbstractTableModel#isCellEditable(int, int)
+         */
+        @Override
+        public boolean isCellEditable(int rowIndex, int columnIndex) {
+            return columnIndex == 2;
         }
     }
 }

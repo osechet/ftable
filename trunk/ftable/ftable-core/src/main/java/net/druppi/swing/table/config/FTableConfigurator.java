@@ -3,18 +3,18 @@
  *
  * Copyright (C) 2009 Olivier Sechet
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful,
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, see <http://www.gnu.org/licenses/>.
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 package net.druppi.swing.table.config;
 
@@ -31,9 +31,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 
+
 import net.druppi.swing.FTable;
 import net.druppi.swing.table.OrganizeColumnForm;
 import net.druppi.swing.table.PropertiesDialog;
+import net.druppi.swing.table.PropertiesPanel;
+import net.druppi.swing.table.XTableColumnModel;
 import net.druppi.util.ResourceManager;
 import net.druppi.util.ResourceMap;
 
@@ -123,9 +126,11 @@ final class FTableConfigurator {
         }
 
 //        dialog.addTab(new TableFilterForm(table));
-        OrganizeColumnForm panel = new OrganizeColumnForm();
-        panel.init(table);
-        dialog.addTab(panel);
+        // To be able to organize the table's column, we need a column model able to hide columns
+        if (table.getColumnModel() instanceof XTableColumnModel) {
+            OrganizeColumnForm panel = new OrganizeColumnForm();
+            dialog.addTab(panel);
+        }
 
         dialog.pack();
         dialog.setLocationRelativeTo(ancestor);
@@ -172,6 +177,10 @@ final class FTableConfigurator {
             }
             if (tabIndex >= 0) {
                 dialog.setTabVisible(tabIndex);
+            }
+            PropertiesPanel[] panels = dialog.getPropertiesPanels();
+            for (PropertiesPanel panel : panels) {
+                panel.init(table);
             }
             dialog.setVisible(true);
         }
