@@ -36,11 +36,10 @@ import net.druppi.swing.table.format.categories.FormatCategory;
 
 import com.mallardsoft.tuple.Pair;
 
-
-
 /**
  * Describes the format of the cells of a grid. The format can be defined per cell or per
- * row or per column or per condition. The priority is as follow : cell > row > column > condition.
+ * row or per column or per condition. The priority is as follow : condition > cell > row
+ * > column.
  *
  * @author Olivier Sechet
  * @version 1.0 - Apr 7, 2009
@@ -82,9 +81,9 @@ public class FormatManager {
     public FormatManager(final FTable table) {
         this.table = table;
 
-        defaultFormat = new CellFormat(null, Alignment.LEFT,
-                CategoryFactory.createGeneralCategory(), table.getFont(),
-                table.getForeground(), table.getBackground());
+        defaultFormat = new CellFormat(null, Alignment.LEFT, CategoryFactory
+                .createGeneralCategory(), table.getFont(), table.getForeground(), table
+                .getBackground());
     }
 
     /**
@@ -113,6 +112,28 @@ public class FormatManager {
         index = -(index + 1);
         formats.add(index, cellFormat);
         return cellFormat;
+    }
+
+    /**
+     * Creates a new CellFormat that is a merge of the two given CellFormat.
+     *
+     * @param format1 the first CellFormat.
+     * @param format2 the second CellFormat.
+     * @return a merged CellFormat.
+     */
+    public CellFormat getCellFormat(final CellFormat format1, final CellFormat format2) {
+        CellFormat format = format1.copy();
+        format.merge(format2);
+        // Check if such a format exist.
+        int index = Collections.binarySearch(formats, format);
+        if (index > 0) {
+            return formats.get(index);
+        }
+        // An equivalent format does not exist. The new one is added to the list and
+        // returned.
+        index = -(index + 1);
+        formats.add(index, format);
+        return format;
     }
 
     /**
@@ -169,23 +190,38 @@ public class FormatManager {
      */
     final CellFormat getFormat(final int rowIndex, final int columnIndex) {
         CellFormat format = null;
-        for (Iterator<Condition> iterator = conditions.keySet().iterator(); iterator.hasNext();) {
+        for (Iterator<Condition> iterator = conditions.keySet().iterator(); iterator
+                .hasNext();) {
             Condition condition = iterator.next();
             if (condition.matches(table, rowIndex, columnIndex)) {
-                format = conditions.get(condition);
+                if (format == null) {
+                    format = conditions.get(condition);
+                } else {
+                    // Merge the 2 CellFormat
+                    format = getCellFormat(format, conditions.get(condition));
+                }
             }
         }
         if (format == null) {
             format = cells.get(Pair.from(rowIndex, columnIndex));
-            if (format == null) {
-                format = rows.get(rowIndex);
-                if (format == null) {
-                    format = columns.get(columnIndex);
-                    if (format == null) {
-                        format = defaultFormat;
-                    }
-                }
-            }
+        } else {
+            // Merge the 2 CellFormat
+            format = getCellFormat(format, cells.get(Pair.from(rowIndex, columnIndex)));
+        }
+        if (format == null) {
+            format = rows.get(rowIndex);
+        } else {
+            // Merge the 2 CellFormat
+            format = getCellFormat(format, rows.get(rowIndex));
+        }
+        if (format == null) {
+            format = columns.get(columnIndex);
+        } else {
+            // Merge the 2 CellFormat
+            format = getCellFormat(format, columns.get(columnIndex));
+        }
+        if (format == null) {
+            format = defaultFormat;
         }
         return format;
     }
@@ -205,7 +241,8 @@ public class FormatManager {
         int rowIndex = table.convertRowIndexToModel(row);
         int columnIndex = table.convertColumnIndexToModel(column);
         renderer.setCellFormat(getFormat(rowIndex, columnIndex));
-        renderer.setRenderer(table.getDefaultRenderer(table.getModel().getColumnClass(columnIndex)));
+        renderer.setRenderer(table.getDefaultRenderer(table.getModel().getColumnClass(
+            columnIndex)));
         return renderer;
     }
 
@@ -224,7 +261,8 @@ public class FormatManager {
         int rowIndex = table.convertRowIndexToModel(row);
         int columnIndex = table.convertColumnIndexToModel(column);
         editor.setCellFormat(getFormat(rowIndex, columnIndex));
-        editor.setEditor(table.getDefaultEditor(table.getModel().getColumnClass(columnIndex)));
+        editor.setEditor(table.getDefaultEditor(table.getModel().getColumnClass(
+            columnIndex)));
         return editor;
     }
 

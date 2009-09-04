@@ -29,7 +29,6 @@ import net.druppi.swing.table.format.categories.FormatCategory;
 import net.druppi.util.ColorComparator;
 import net.druppi.util.FontComparator;
 
-
 /**
  * Describes the format of a cell or a group of cells.
  *
@@ -64,8 +63,9 @@ public class CellFormat implements Comparable<CellFormat> {
      * @param foreground the text color.
      * @param background the background color.
      */
-    CellFormat(final CellFormat parent, final Alignment alignment, final FormatCategory formatter,
-            final Font font, final Color foreground, final Color background) {
+    CellFormat(final CellFormat parent, final Alignment alignment,
+            final FormatCategory formatter, final Font font, final Color foreground,
+            final Color background) {
         this.parent = parent;
         this.alignment = alignment;
         this.formatter = formatter;
@@ -180,6 +180,45 @@ public class CellFormat implements Comparable<CellFormat> {
     }
 
     /**
+     * Returns a copy of this CellFormat. This method is package protected because it can
+     * be called only by the FormatManager.
+     *
+     * @return a copy of this CellFormat.
+     */
+    final CellFormat copy() {
+        return new CellFormat(parent, alignment, formatter, font, foreground, background);
+    }
+
+    /**
+     * Merges the given CellFormat with this one. If the given CellFormat is
+     * <code>null</code>, nothing is done. The merge operation keeps this CellFormat's
+     * properties. That is to say that if one attribute of this CellFormat is already
+     * defined, the attribute will not be changed.
+     *
+     * @param format the CellFormat to merge with this one.
+     */
+    public final void merge(final CellFormat format) {
+        if (format == null) {
+            return;
+        }
+        if (this.alignment == null && format.alignment != null) {
+            this.alignment = format.alignment;
+        }
+        if (this.formatter == null && format.formatter != null) {
+            this.formatter = format.formatter;
+        }
+        if (this.font == null && format.font != null) {
+            this.font = format.font;
+        }
+        if (this.foreground == null && format.foreground != null) {
+            this.foreground = format.foreground;
+        }
+        if (this.background == null && format.background != null) {
+            this.background = format.background;
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -191,13 +230,10 @@ public class CellFormat implements Comparable<CellFormat> {
             return true;
         }
         CellFormat that = (CellFormat) obj;
-        return new EqualsBuilder()
-            .append(this.parent, that.parent)
-            .append(this.alignment, that.alignment)
-            .append(this.font, that.font)
-            .append(this.foreground, that.foreground)
-            .append(this.background, that.background)
-            .append(this.formatter, that.formatter).isEquals();
+        return new EqualsBuilder().append(this.parent, that.parent).append(
+            this.alignment, that.alignment).append(this.font, that.font).append(
+            this.foreground, that.foreground).append(this.background, that.background)
+                .append(this.formatter, that.formatter).isEquals();
     }
 
     /**
@@ -205,26 +241,23 @@ public class CellFormat implements Comparable<CellFormat> {
      */
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(13, 47)
-            .append(this.parent)
-            .append(this.alignment)
-            .append(this.font)
-            .append(this.foreground)
-            .append(this.background)
-            .append(this.formatter).toHashCode();
+        return new HashCodeBuilder(13, 47).append(this.parent).append(this.alignment)
+                .append(this.font).append(this.foreground).append(this.background)
+                .append(this.formatter).toHashCode();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     *
      * @see java.lang.Comparable#compareTo(java.lang.Object)
      */
     @Override
     public int compareTo(CellFormat that) {
-        return new CompareToBuilder()
-            .append(this.parent, that.parent)
-            .append(this.alignment, that.alignment)
-            .append(this.font, that.font, FontComparator.getInstance())
-            .append(this.foreground, that.foreground, ColorComparator.getInstance())
-            .append(this.background, that.background, ColorComparator.getInstance())
-            .append(this.formatter, that.formatter).toComparison();
+        return new CompareToBuilder().append(this.parent, that.parent).append(
+            this.alignment, that.alignment).append(this.font, that.font,
+            FontComparator.getInstance()).append(this.foreground, that.foreground,
+            ColorComparator.getInstance()).append(this.background, that.background,
+            ColorComparator.getInstance()).append(this.formatter, that.formatter)
+                .toComparison();
     }
 }
