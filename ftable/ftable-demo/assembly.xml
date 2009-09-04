@@ -13,6 +13,11 @@
             <source>../COPYING</source>
             <outputDirectory>/</outputDirectory>
         </file>
+        <!-- The sources are needed to show the source code of each demo.  -->
+        <file>
+            <source>${project.build.directory}/${project.artifactId}-${project.version}-sources.jar</source>
+            <outputDirectory>lib</outputDirectory>
+        </file>
     </files>
     <fileSets>
         <fileSet>

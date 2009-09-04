@@ -1,5 +1,5 @@
 /*
- * Demo.java
+ * DemoManager.java
  *
  * Copyright (C) 2009 Olivier Sechet
  *
@@ -18,34 +18,51 @@
  */
 package net.druppi.demo;
 
-import javax.swing.JPanel;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Olivier Sechet
  * @version 1.0 - Sep 3, 2009
  */
-public interface Demo {
+public class DemoManager {
+
+    private List<Demo> demos = new ArrayList<Demo>();
 
     /**
-     * Returns the demo's name. The name of a demo is used to easily recognize it.
+     * Registers a new demo.
      *
-     * @return the demo's name.
+     * @param demo the new demo.
      */
-    String getName();
+    public void register(final Demo demo) {
+        demos.add(demo);
+    }
 
     /**
-     * Returns the demo's panel. The panel of a demo is where the demo shows its
-     * capabilities.
+     * Returns the registered demos.
      *
-     * @return the demo's panel
+     * @return the registered demos.
      */
-    JPanel getPanel();
+    public Demo[] getDemos() {
+        return demos.toArray(new Demo[demos.size()]);
+    }
 
     /**
-     * Returns the demo's source. The source of a demo is the code used to create the
-     * demo.
+     * Returns the number of registered demos.
      *
-     * @return the demo's source.
+     * @return the number of registered demos.
      */
-    String getSource();
+    public int getDemosCount() {
+        return demos.size();
+    }
+
+    /**
+     * Returns the demo at the specified index.
+     *
+     * @param index the index of the demo.
+     * @return the demo.
+     */
+    public Demo getDemo(int index) {
+        return demos.get(index);
+    }
 }

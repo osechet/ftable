@@ -1,5 +1,5 @@
 /*
- * Demo.java
+ * DemoListModel.java
  *
  * Copyright (C) 2009 Olivier Sechet
  *
@@ -18,34 +18,41 @@
  */
 package net.druppi.demo;
 
-import javax.swing.JPanel;
+import javax.swing.AbstractListModel;
 
 /**
  * @author Olivier Sechet
  * @version 1.0 - Sep 3, 2009
  */
-public interface Demo {
+@SuppressWarnings("serial")
+public class DemoListModel extends AbstractListModel {
+
+    /** The associated DemoManager. */
+    private final DemoManager demoManager;
 
     /**
-     * Returns the demo's name. The name of a demo is used to easily recognize it.
+     * Creates a new DemoListModel.
      *
-     * @return the demo's name.
+     * @param demoManager the associated DemoManager.
      */
-    String getName();
+    public DemoListModel(final DemoManager demoManager) {
+        this.demoManager = demoManager;
+    }
 
     /**
-     * Returns the demo's panel. The panel of a demo is where the demo shows its
-     * capabilities.
-     *
-     * @return the demo's panel
+     * {@inheritDoc}
      */
-    JPanel getPanel();
+    @Override
+    public Object getElementAt(final int index) {
+        return demoManager.getDemo(index).getName();
+    }
 
     /**
-     * Returns the demo's source. The source of a demo is the code used to create the
-     * demo.
-     *
-     * @return the demo's source.
+     * {@inheritDoc}
      */
-    String getSource();
+    @Override
+    public int getSize() {
+        return demoManager.getDemosCount();
+    }
+
 }
