@@ -7,8 +7,9 @@
     <groupId>net.druppi</groupId>
     <artifactId>ftable</artifactId>
     <packaging>pom</packaging>
-    <name>Improved Table with Formatting</name>
+    <name>FTable</name>
     <version>0.2-SNAPSHOT</version>
+    <description>Improved Table with Formatting</description>
     <url>http://kenai.com/projects/ftable/</url>
     <licenses>
         <license>
@@ -30,11 +31,12 @@
 
     <issueManagement>
         <system>Bugzilla</system>
-        <url>http://kenai.com/bugzilla/buglist.cgi?product=ftable&amp;order=Importance&amp;limit=25</url>
+        <url>http://kenai.com/bugzilla/</url>
 	</issueManagement>
     <scm>
-        <connection>scm:https://kenai.com/svn/ftable~source-code-repository</connection>
-        <url>https://kenai.com/svn/ftable~source-code-repository/</url>
+        <connection>scm:svn:http://kenai.com/svn/ftable~source-code-repository/trunk/ftable</connection>
+        <developerConnection>scm:svn:https://kenai.com/svn/ftable~source-code-repository/trunk/ftable</developerConnection>
+        <url>scm:svn:http://kenai.com/svn/ftable~source-code-repository/trunk/ftable</url>
     </scm>
     <distributionManagement>
         <repository>

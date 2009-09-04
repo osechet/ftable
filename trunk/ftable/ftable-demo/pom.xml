@@ -13,7 +13,7 @@
     <artifactId>ftable-demo</artifactId>
     <name>ftable-demo</name>
     <properties>
-        
+
     </properties>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
@@ -51,7 +51,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>net.druppi.demo.Demo</mainClass>
+                            <mainClass>net.druppi.demo.DemoApp</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
