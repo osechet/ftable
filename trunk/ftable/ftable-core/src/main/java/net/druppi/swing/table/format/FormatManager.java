@@ -126,7 +126,7 @@ public class FormatManager {
         format.merge(format2);
         // Check if such a format exist.
         int index = Collections.binarySearch(formats, format);
-        if (index > 0) {
+        if (index >= 0) {
             return formats.get(index);
         }
         // An equivalent format does not exist. The new one is added to the list and
