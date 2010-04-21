@@ -104,7 +104,7 @@ public class FormatManager {
                 foreground, background);
         // Check if such a format exist.
         int index = Collections.binarySearch(formats, cellFormat);
-        if (index > 0) {
+        if (index >= 0) {
             return formats.get(index);
         }
         // An equivalent format does not exist. The new one is added to the list and
