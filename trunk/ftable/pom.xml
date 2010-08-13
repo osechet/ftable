@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.druppi</groupId>
@@ -32,7 +30,7 @@
     <issueManagement>
         <system>Bugzilla</system>
         <url>http://kenai.com/bugzilla/</url>
-	</issueManagement>
+    </issueManagement>
     <scm>
         <connection>scm:svn:http://kenai.com/svn/ftable~source-code-repository/trunk/ftable</connection>
         <developerConnection>scm:svn:https://kenai.com/svn/ftable~source-code-repository/trunk/ftable</developerConnection>
@@ -52,19 +50,19 @@
         </snapshotRepository>
     </distributionManagement>
 
-	<developers>
-		<developer>
-			<id>osechet</id>
-			<name>Olivier Sechet</name>
-			<email>osechet@kenai.com</email>
-			<url>http://www.druppi.net/</url>
-			<timezone>+8</timezone>
-			<roles>
-				<role>Project Manager</role>
-				<role>Developer</role>
-			</roles>
-		</developer>
-	</developers>
+    <developers>
+        <developer>
+            <id>osechet</id>
+            <name>Olivier Sechet</name>
+            <email>osechet@kenai.com</email>
+            <url>http://www.druppi.net/</url>
+            <timezone>+8</timezone>
+            <roles>
+                <role>Project Manager</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
 
     <build>
         <plugins>
