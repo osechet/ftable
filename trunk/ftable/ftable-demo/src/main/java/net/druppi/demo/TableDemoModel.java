@@ -3,6 +3,8 @@ package net.druppi.demo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,14 +14,15 @@ import javax.swing.table.AbstractTableModel;
 @SuppressWarnings("serial")
 public class TableDemoModel extends AbstractTableModel {
 
-    private static final String[] columnNames = {"String", "Integer", "Long", "Float", "Double", "Boolean"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
-    private static final Class<?>[] columnTypes = {String.class, Integer.class, Long.class, Float.class, Double.class, Boolean.class};
+    private static final String[] columnNames = {"String", "Integer", "Long", "Float", "Double", "Boolean", "Icon"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+    private static final Class<?>[] columnTypes = {String.class, Integer.class, Long.class, Float.class, Double.class, Boolean.class, Icon.class};
     private List<List<Object>> data = new ArrayList<List<Object>>();
 
     /**
      * Creates a new TableDemoModel.
      */
     public TableDemoModel() {
+        final Icon icon = new ImageIcon(getClass().getResource("/images/icon.png"));
         for (int i = 0; i < 10; i++) {
             List<Object> row = new ArrayList<Object>();
             int columnCount = getColumnCount();
@@ -30,6 +33,7 @@ public class TableDemoModel extends AbstractTableModel {
             row.add(new Float(i * columnCount + 3 + 1));
             row.add(new Double(i * columnCount + 4 + 1));
             row.add(((i * columnCount + 5 + 1) % 4) == 0);
+            row.add(icon);
 
             data.add(row);
         }
