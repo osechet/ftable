@@ -101,7 +101,7 @@
                 <configuration>
                     <links>
                         <link>${javadocLink}</link>
-                        <link>http://junit.org/junit/javadoc/4.5/</link>
+                        <link>http://junit.sourceforge.net/javadoc/</link>
                     </links>
                 </configuration>
             </plugin>
@@ -223,7 +223,7 @@
                                 <configuration>
                                     <links>
                                         <link>${javadocLink}</link>
-                                        <link>http://junit.org/junit/javadoc/4.5/</link>
+                                        <link>http://junit.sourceforge.net/javadoc/</link>
                                     </links>
                                 </configuration>
                             </execution>
