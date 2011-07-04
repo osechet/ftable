@@ -141,7 +141,7 @@ public class XTableColumnModel extends DefaultTableColumnModel {
     }
 
     /**
-     * Checks wether the specified column is currently visible.
+     * Checks whether the specified column is currently visible.
      *
      * @param aColumn column to check
      * @return visibility of specified column (false if there is no such column at all.
@@ -321,7 +321,11 @@ public class XTableColumnModel extends DefaultTableColumnModel {
      *         <code>columnIndex</code>
      */
     public TableColumn getColumn(final int columnIndex, final boolean onlyVisible) {
-        return tableColumns.elementAt(columnIndex);
+        if (onlyVisible) {
+            return tableColumns.elementAt(columnIndex);
+        } else {
+            return allTableColumns.elementAt(columnIndex);
+        }
     }
 
 }
