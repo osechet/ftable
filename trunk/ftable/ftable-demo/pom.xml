@@ -3,51 +3,21 @@
     xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>ftable</artifactId>
         <groupId>net.druppi</groupId>
         <version>0.2-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>net.druppi</groupId>
     <artifactId>ftable-demo</artifactId>
     <name>ftable-demo</name>
     <properties>
-
     </properties>
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/*.gif</exclude>
-                    <exclude>**/*.jpg</exclude>
-                    <exclude>**/*.jpeg</exclude>
-                    <exclude>**/*.png</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.gif</include>
-                    <include>**/*.jpg</include>
-                    <include>**/*.jpeg</include>
-                    <include>**/*.png</include>
-                </includes>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.2</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -59,8 +29,8 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2-beta-4</version>
                 <configuration>
                     <descriptors>
                         <descriptor>assembly.xml</descriptor>
@@ -73,13 +43,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.5</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.druppi</groupId>
             <artifactId>ftable-core</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

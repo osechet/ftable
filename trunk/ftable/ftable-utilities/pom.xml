@@ -1,60 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>ftable</artifactId>
-		<groupId>net.druppi</groupId>
-		<version>0.2-SNAPSHOT</version>
-	</parent>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.druppi</groupId>
-	<artifactId>ftable-utilities</artifactId>
-	<name>ftable-utilities</name>
-	<url>http://kenai.com/projects/ftable/</url>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>ftable</artifactId>
+        <groupId>net.druppi</groupId>
+        <version>0.2-SNAPSHOT</version>
+    </parent>
+    <artifactId>ftable-utilities</artifactId>
+    <name>ftable-utilities</name>
+    <url>http://kenai.com/projects/ftable/</url>
     <properties>
-        
     </properties>
-	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
-		<resources>
-			<resource>
-				<filtering>true</filtering>
-				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/*.gif</exclude>
-					<exclude>**/*.jpg</exclude>
-					<exclude>**/*.jpeg</exclude>
-					<exclude>**/*.png</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>**/*.gif</include>
-					<include>**/*.jpg</include>
-					<include>**/*.jpeg</include>
-					<include>**/*.png</include>
-				</includes>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
-	</build>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.4</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+        </dependency>
+    </dependencies>
 </project>
