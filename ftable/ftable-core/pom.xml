@@ -1,74 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>net.druppi</groupId>
         <artifactId>ftable</artifactId>
         <version>0.2-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>net.druppi</groupId>
     <artifactId>ftable-core</artifactId>
     <name>ftable-core</name>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <exclude>**/*.gif</exclude>
-                    <exclude>**/*.jpg</exclude>
-                    <exclude>**/*.jpeg</exclude>
-                    <exclude>**/*.png</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.gif</include>
-                    <include>**/*.jpg</include>
-                    <include>**/*.jpeg</include>
-                    <include>**/*.png</include>
-                </includes>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
-    </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.5</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.mallardsoft</groupId>
             <artifactId>tuple</artifactId>
-            <version>1.0</version>
+            <version>${tuple.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.4</version>
+            <version>${commons-lang.version}</version>
         </dependency>
         <dependency>
             <groupId>net.druppi</groupId>
             <artifactId>dtools</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>${dtools.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>jlfgr</artifactId>
-            <version>1.0</version>
+            <version>${jlfgr.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
