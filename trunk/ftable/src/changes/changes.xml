@@ -20,6 +20,10 @@
                 dev="osechet"
                 type="fix"
                 date="2011-10-25">Fixed potential bugs in XTableColumnModel.</action>
+            <action
+                dev="osechet"
+                type="update"
+                date="2011-10-25">Specified version of Maven release plugin.</action>
         </release>
     </body>
 </document>
