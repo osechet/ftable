@@ -29,7 +29,7 @@
         <dependency>
             <groupId>net.druppi</groupId>
             <artifactId>dtools</artifactId>
-            <version>${dtools.version}</version>
+            <version>${dutilities.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun</groupId>

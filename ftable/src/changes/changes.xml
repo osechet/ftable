@@ -28,6 +28,10 @@
                 dev="osechet"
                 type="update"
                 date="2011-10-25">Updated dutilities version.</action>
+            <action
+                dev="osechet"
+                type="delete"
+                date="2011-10-25">Removed useless files.</action>
         </release>
     </body>
 </document>
