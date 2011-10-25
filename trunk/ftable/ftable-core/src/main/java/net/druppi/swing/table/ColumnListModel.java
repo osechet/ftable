@@ -87,14 +87,13 @@ class ColumnListModel extends AbstractListModel {
     public void updateColumnModel() {
         if (manageVisible) {
             for (int i = 0; i < columns.size(); i++) {
-                TableColumn column = columns.get(i);
-                model.setColumnVisible(column, true);
-                int index = model.getColumnIndex(column.getIdentifier());
+                model.setColumnVisible(i, true);
+                int index = model.getColumnIndex(model.getColumn(i).getIdentifier());
                 model.moveColumn(index, i);
             }
         } else {
-            for (TableColumn column : columns) {
-                model.setColumnVisible(column, false);
+            for (int i = 0; i < columns.size(); i++) {
+                model.setColumnVisible(i, false);
             }
         }
     }

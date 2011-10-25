@@ -71,22 +71,22 @@ public class XTableColumnModel extends DefaultTableColumnModel {
      * @param visible its new visibility status
      */
     // listeners will receive columnAdded()/columnRemoved() event
-    public void setColumnVisible(final TableColumn column, final boolean visible) {
-        if (!visible) {
-            super.removeColumn(column);
-        } else {
+    public void setColumnVisible(final int modelColumnIndex, final boolean visible) {
+        final TableColumn column =  getColumnByModelIndex(modelColumnIndex);
+
+        if (visible) {
             // find the visible index of the column:
             // iterate through both collections of visible and all columns, counting
             // visible columns up to the one that's about to be shown again
-            int noVisibleColumns = tableColumns.size();
-            int noInvisibleColumns = allTableColumns.size();
+            final int visibleCount = tableColumns.size();
+            final int columnCount = allTableColumns.size();
             int visibleIndex = 0;
 
-            for (int invisibleIndex = 0; invisibleIndex < noInvisibleColumns; ++invisibleIndex) {
-                TableColumn visibleColumn = (visibleIndex < noVisibleColumns ? (TableColumn) tableColumns
-                        .get(visibleIndex)
-                        : null);
-                TableColumn testColumn = allTableColumns.get(invisibleIndex);
+            for (int index = 0; index < columnCount; ++index) {
+
+                final TableColumn testColumn = allTableColumns.get(index);
+                final TableColumn visibleColumn = visibleIndex < visibleCount
+                        ? (TableColumn) tableColumns.get(visibleIndex) : null;
 
                 if (testColumn == column) {
                     if (visibleColumn != column) {
@@ -99,6 +99,8 @@ public class XTableColumnModel extends DefaultTableColumnModel {
                     ++visibleIndex;
                 }
             }
+        } else {
+            super.removeColumn(column);
         }
     }
 
@@ -106,15 +108,10 @@ public class XTableColumnModel extends DefaultTableColumnModel {
      * Makes all columns in this model visible.
      */
     public void setAllColumnsVisible() {
-        int noColumns = allTableColumns.size();
-
-        for (int columnIndex = 0; columnIndex < noColumns; ++columnIndex) {
-            TableColumn visibleColumn = (columnIndex < tableColumns.size() ? (TableColumn) tableColumns
-                    .get(columnIndex)
-                    : null);
-            TableColumn invisibleColumn = allTableColumns.get(columnIndex);
-
-            if (visibleColumn != invisibleColumn) {
+        final int columnCount = allTableColumns.size();
+        for (int columnIndex = 0; columnIndex < columnCount; ++columnIndex) {
+            final TableColumn invisibleColumn = allTableColumns.get(columnIndex);
+            if (!tableColumns.contains(invisibleColumn)) {
                 super.addColumn(invisibleColumn);
                 super.moveColumn(tableColumns.size() - 1, columnIndex);
             }
@@ -147,8 +144,9 @@ public class XTableColumnModel extends DefaultTableColumnModel {
      * @return visibility of specified column (false if there is no such column at all.
      *         [It's not visible, right?])
      */
-    public boolean isColumnVisible(final TableColumn aColumn) {
-        return (tableColumns.indexOf(aColumn) >= 0);
+    public boolean isColumnVisible(final int modelColumnIndex) {
+        final TableColumn column = getColumnByModelIndex(modelColumnIndex);
+        return tableColumns.indexOf(column) >= 0;
     }
 
     /**

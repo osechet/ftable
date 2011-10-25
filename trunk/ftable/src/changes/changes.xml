@@ -16,6 +16,10 @@
                 dev="osechet"
                 type="update"
                 date="2011-10-25">Updated Eclipse projects to Indigo.</action>
+            <action
+                dev="osechet"
+                type="fix"
+                date="2011-10-25">Fixed potential bugs in XTableColumnModel.</action>
         </release>
     </body>
 </document>
