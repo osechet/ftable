@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.druppi</groupId>
     <artifactId>ftable</artifactId>
     <packaging>pom</packaging>
     <name>FTable</name>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <description>Improved Table with Formatting</description>
     <url>http://kenai.com/projects/ftable/</url>
     
@@ -80,9 +79,9 @@
     
     <!-- SCM -->
     <scm>
-        <connection>scm:svn:http://kenai.com/svn/ftable~source-code-repository/trunk/ftable</connection>
-        <developerConnection>scm:svn:https://kenai.com/svn/ftable~source-code-repository/trunk/ftable</developerConnection>
-        <url>https://kenai.com/svn/ftable~source-code-repository/trunk/ftable</url>
+        <connection>scm:svn:http://kenai.com/svn/ftable~source-code-repository/tags/ftable-0.2</connection>
+        <developerConnection>scm:svn:https://kenai.com/svn/ftable~source-code-repository/tags/ftable-0.2</developerConnection>
+        <url>https://kenai.com/svn/ftable~source-code-repository/tags/ftable-0.2</url>
     </scm>
     
     <!-- Distribution Management -->
