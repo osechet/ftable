@@ -24,6 +24,10 @@
                 dev="osechet"
                 type="update"
                 date="2011-10-25">Specified version of Maven release plugin.</action>
+            <action
+                dev="osechet"
+                type="update"
+                date="2011-10-25">Updated dutilities version.</action>
         </release>
     </body>
 </document>
